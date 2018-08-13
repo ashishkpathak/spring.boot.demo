@@ -21,6 +21,6 @@ public class CustomerService implements CustomerServiceIF {
 
   @Override
   public List<Customer> getCustomerByLastName(String firstName) {
-    return repository.findByFirstName(firstName);
+    return repository.findByLastName(firstName);
   }
 }
