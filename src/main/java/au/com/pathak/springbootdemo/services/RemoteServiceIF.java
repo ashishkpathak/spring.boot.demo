@@ -6,5 +6,6 @@ import au.com.pathak.springbootdemo.model.Customer;
 
 public interface RemoteServiceIF {
 
-  List<Customer> getRemoteCustomer(final String firstName);
+  List<Customer> getRemoteCustomerByFirstName(final String firstName);
+  List<Customer> getRemoteCustomerByLastName(final String lastName);
 }
