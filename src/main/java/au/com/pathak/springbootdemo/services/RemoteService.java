@@ -23,7 +23,7 @@ public class RemoteService implements RemoteServiceIF {
   @HystrixCommand(fallbackMethod = "getLocalCustomerByFirstName")
   public List<Customer> getRemoteCustomerByFirstName(final String firstName) {
 
-    return Arrays.asList(new Customer());
+    return Arrays.asList(new Customer("RemoteUserFirstName","RemoteUserLastName"));
   }
 
   @HystrixCommand(fallbackMethod = "getLocalCustomerByLastName")

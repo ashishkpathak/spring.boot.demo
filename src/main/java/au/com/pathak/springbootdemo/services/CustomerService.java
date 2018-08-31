@@ -20,7 +20,7 @@ public class CustomerService implements CustomerServiceIF {
   }
 
   @Override
-  public List<Customer> getCustomerByLastName(String firstName) {
-    return repository.findByLastName(firstName);
+  public List<Customer> getCustomerByLastName(String lastName) {
+    return repository.findByLastName(lastName);
   }
 }

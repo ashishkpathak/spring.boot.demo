@@ -4,6 +4,7 @@ import au.com.pathak.springbootdemo.jpa.CustomerRepository;
 import au.com.pathak.springbootdemo.model.Customer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,7 +12,7 @@ import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.context.annotation.Bean;
 
 /**
- *
+
  *
  */
 @SpringBootApplication
@@ -31,8 +32,10 @@ public class SpringBootDemoApplication {
    */
 
   @Bean
-  public CommandLineRunner initializeCustomerDatabase(CustomerRepository repository) {
+  public CommandLineRunner initializeCustomerDatabase(CustomerRepository repository, ApplicationArguments arguments) {
 
+
+    LOG.debug("Arguments: ", arguments);
     return args
         ->{
       repository.save(new Customer("Homer", "Simpson"));
@@ -45,4 +48,8 @@ public class SpringBootDemoApplication {
 
 
   }
+
+
+
+
 }
