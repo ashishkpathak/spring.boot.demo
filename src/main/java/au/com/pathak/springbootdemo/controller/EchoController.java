@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class EchoController {
 
   @RequestMapping("/echo")
-  public Map<String, String> echoRequestParams(@RequestBody String body,  HttpServletRequest request) throws IOException {
+  public Map<String, String> echoRequestParams(@RequestBody(required = false) String body, HttpServletRequest request) throws IOException {
 
     Map<String, String> response = new LinkedHashMap<>();
     Enumeration<String> headerNames = request.getHeaderNames();
@@ -26,7 +27,10 @@ public class EchoController {
       response.put(key, request.getHeader(key));
 
     }
-    response.put("body", URLDecoder.decode(body));
+    if(StringUtils.isNotEmpty(body)) {
+
+      response.put("body", URLDecoder.decode(body));
+    }
 
     return response;
   }
