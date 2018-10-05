@@ -1,7 +1,9 @@
 package au.com.pathak.springbootdemo.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class BillSummary implements Serializable {
@@ -12,7 +14,7 @@ public class BillSummary implements Serializable {
   private String billingAccountNumber;
   private String dueDate;
 
-  private Set<CurrentBill> invoiceList =new HashSet<CurrentBill>();
+  private List<CurrentBill> invoiceList =new ArrayList<CurrentBill>();
 
   /**
    * {
@@ -88,11 +90,11 @@ public class BillSummary implements Serializable {
     this.dueDate = dueDate;
   }
 
-  public Set<CurrentBill> getInvoiceList() {
+  public List<CurrentBill> getInvoiceList() {
     return invoiceList;
   }
 
-  public void setInvoiceList(Set<CurrentBill> invoiceList) {
+  public void setInvoiceList(List<CurrentBill> invoiceList) {
     this.invoiceList = invoiceList;
   }
 }
