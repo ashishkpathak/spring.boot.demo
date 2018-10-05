@@ -42,9 +42,10 @@ public class MockBillingController {
     dateTime = localDate.atStartOfDay();
     List<CurrentBill> invoiceList = new ArrayList<CurrentBill>();
 
-    summary.setAmountDue("$ 10");
+    int amount =  random.nextInt(1000);
+    summary.setAmountDue("$ "+ amount);
     summary.setBillingAccountNumber(account);
-    summary.setCurrentOverdueAmount("$ 10");
+    summary.setCurrentOverdueAmount("$ "+ amount);
     summary.setDueDate(dateTime.format(formatter));
 
     summary.setInvoiceList(invoiceList);
@@ -58,24 +59,24 @@ public class MockBillingController {
 //    localDate.atStartOfDay().format(formatter);
 
     currentBill.setBillDate(localDate.minusMonths(1).atStartOfDay().format(formatter));
-    currentBill.setBillNumber("10233322");
-    currentBill.setTotalCharges("$ 100");
+    currentBill.setBillNumber(String.valueOf(random.nextInt(100000)));
+    currentBill.setTotalCharges("$ "+  random.nextInt(1000));
 
     invoiceList.add(currentBill);
     currentBill = new CurrentBill();
     currentBill.setAccountNum(account);
 
     currentBill.setBillDate(localDate.minusMonths(2).atStartOfDay().format(formatter));
-    currentBill.setBillNumber("10214444");
-    currentBill.setTotalCharges("$ 200");
+    currentBill.setBillNumber(String.valueOf(random.nextInt(100000)));
+    currentBill.setTotalCharges("$ "+ random.nextInt(1000));
 
     invoiceList.add(currentBill);
     currentBill = new CurrentBill();
     currentBill.setAccountNum(account);
 
     currentBill.setBillDate(localDate.minusMonths(3).atStartOfDay().format(formatter));
-    currentBill.setBillNumber("932334");
-    currentBill.setTotalCharges("$ 100");
+    currentBill.setBillNumber(String.valueOf(random.nextInt(100000)));
+    currentBill.setTotalCharges("$ "+ random.nextInt(1000));
 
     invoiceList.add(currentBill);
 
