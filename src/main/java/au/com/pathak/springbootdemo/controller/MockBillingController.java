@@ -21,6 +21,10 @@ import au.com.pathak.springbootdemo.model.CurrentBill;
 import au.com.pathak.springbootdemo.model.Customer;
 import au.com.pathak.springbootdemo.model.PaymentMethod;
 import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,6 +32,10 @@ import sun.util.resources.et.CalendarData_et;
 
 @RestController
 public class MockBillingController implements BillingControllerIF {
+
+
+  @Autowired
+  private ResourceLoader resourceLoader;
 
   private static Random random = new Random();
 
@@ -104,7 +112,10 @@ public class MockBillingController implements BillingControllerIF {
 //      InputStream systemResourceAsStream = ;
 //      System.out.println(systemResourceAsStream);
 
-      try(BufferedInputStream bis = new BufferedInputStream(ClassLoader.getSystemResourceAsStream("invoices/my-bill.pdf") )) {
+      Resource resource = resourceLoader.getResource("classpath:invoices/my-bill.pdf");
+
+
+      try(BufferedInputStream bis = new BufferedInputStream(resource.getInputStream())) {
 
         int bRead = -1;
         while((bRead = bis.read(buffer))!=-1) {
