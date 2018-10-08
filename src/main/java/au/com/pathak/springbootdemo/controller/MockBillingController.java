@@ -129,13 +129,13 @@ public class MockBillingController implements BillingControllerIF {
 
 
 
-      billDetail.setFormat(outputFormat);
       billDetail.setOutput(baos.toByteArray());
       baos.close();
 
-//      billDetail.setOutput();
+      //      billDetail.setOutput();
     }
 
+    billDetail.setFormat(outputFormat);
     return billDetail;
   }
 
