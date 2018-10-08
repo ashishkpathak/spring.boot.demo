@@ -13,4 +13,9 @@ public class SpringBootDemoApplicationTests {
 	public void contextLoads() {
 	}
 
+
+	public void createAbcXyz() {
+
+	}
+
 }
