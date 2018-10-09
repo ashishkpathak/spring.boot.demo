@@ -9,8 +9,8 @@ import java.util.Set;
 public class BillSummary implements Serializable {
 
   private PaymentMethod paymentMethod;
-  private String amountDue;
-  private String currentOverdueAmount;
+  private Money amountDue;
+  private Money currentOverdueAmount;
   private String billingAccountNumber;
   private String dueDate;
 
@@ -58,19 +58,19 @@ public class BillSummary implements Serializable {
     this.paymentMethod = paymentMethod;
   }
 
-  public String getAmountDue() {
+  public Money getAmountDue() {
     return amountDue;
   }
 
-  public void setAmountDue(String amountDue) {
+  public void setAmountDue(Money amountDue) {
     this.amountDue = amountDue;
   }
 
-  public String getCurrentOverdueAmount() {
+  public Money getCurrentOverdueAmount() {
     return currentOverdueAmount;
   }
 
-  public void setCurrentOverdueAmount(String currentOverdueAmount) {
+  public void setCurrentOverdueAmount(Money currentOverdueAmount) {
     this.currentOverdueAmount = currentOverdueAmount;
   }
 

@@ -2,17 +2,14 @@ package au.com.pathak.springbootdemo.model;
 
 import java.io.Serializable;
 
-public class CurrentBill implements Serializable{
+public class CurrentBill implements Serializable {
 
   /**
-   * "billNumber": "222628501",
-   "billDate": "Sep 5, 2018 12:00:00 AM",
-   "totalCharges": "$80.34",
-   "accountNum": "159191683"
+   * "billNumber": "222628501", "billDate": "Sep 5, 2018 12:00:00 AM", "totalCharges": "$80.34", "accountNum": "159191683"
    */
   private String billNumber;
   private String billDate;
-  private String totalCharges;
+  private Money totalCharges;
   private String accountNum;
 
   public String getBillNumber() {
@@ -31,11 +28,11 @@ public class CurrentBill implements Serializable{
     this.billDate = billDate;
   }
 
-  public String getTotalCharges() {
+  public Money getTotalCharges() {
     return totalCharges;
   }
 
-  public void setTotalCharges(String totalCharges) {
+  public void setTotalCharges(Money totalCharges) {
     this.totalCharges = totalCharges;
   }
 

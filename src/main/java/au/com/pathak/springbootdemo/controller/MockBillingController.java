@@ -19,6 +19,7 @@ import au.com.pathak.springbootdemo.model.BillDetail;
 import au.com.pathak.springbootdemo.model.BillSummary;
 import au.com.pathak.springbootdemo.model.CurrentBill;
 import au.com.pathak.springbootdemo.model.Customer;
+import au.com.pathak.springbootdemo.model.Money;
 import au.com.pathak.springbootdemo.model.PaymentMethod;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,9 +60,9 @@ public class MockBillingController implements BillingControllerIF {
     List<CurrentBill> invoiceList = new ArrayList<CurrentBill>();
 
     int amount = random.nextInt(1000);
-    summary.setAmountDue("$ " + amount);
+    summary.setAmountDue(new Money(String.valueOf(amount)));
     summary.setBillingAccountNumber(account);
-    summary.setCurrentOverdueAmount("$ " + amount);
+    summary.setCurrentOverdueAmount(new Money(String.valueOf(amount)));
     summary.setDueDate(dateTime.format(formatter));
 
     summary.setInvoiceList(invoiceList);
@@ -74,7 +75,7 @@ public class MockBillingController implements BillingControllerIF {
 
     currentBill.setBillDate(localDate.minusMonths(1).atStartOfDay().format(formatter));
     currentBill.setBillNumber(String.valueOf(random.nextInt(1000000)));
-    currentBill.setTotalCharges("$ " + random.nextInt(1000));
+    currentBill.setTotalCharges(new Money(String.valueOf(random.nextInt(1000))));
 
     invoiceList.add(currentBill);
     currentBill = new CurrentBill();
@@ -82,7 +83,7 @@ public class MockBillingController implements BillingControllerIF {
 
     currentBill.setBillDate(localDate.minusMonths(2).atStartOfDay().format(formatter));
     currentBill.setBillNumber(String.valueOf(random.nextInt(100000)));
-    currentBill.setTotalCharges("$ " + random.nextInt(1000));
+    currentBill.setTotalCharges(new Money(String.valueOf(random.nextInt(1000))));
 
     invoiceList.add(currentBill);
     currentBill = new CurrentBill();
@@ -90,7 +91,7 @@ public class MockBillingController implements BillingControllerIF {
 
     currentBill.setBillDate(localDate.minusMonths(3).atStartOfDay().format(formatter));
     currentBill.setBillNumber(String.valueOf(random.nextInt(10000)));
-    currentBill.setTotalCharges("$ " + random.nextInt(1000));
+    currentBill.setTotalCharges(new Money(String.valueOf(random.nextInt(1000))));
 
     invoiceList.add(currentBill);
 
