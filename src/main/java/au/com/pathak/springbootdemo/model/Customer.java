@@ -1,7 +1,6 @@
 package au.com.pathak.springbootdemo.model;
 
 import java.io.Serializable;
-import java.sql.Connection;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Entity;
