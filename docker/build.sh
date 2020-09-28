@@ -26,10 +26,10 @@ mkdir "$JAR_DIRECTORY"
 mkdir "$RESOURCE_DIRECTORY"
 
 echo "COPYING ALL RESOURCES TO ${RESOURCE_DIRECTORY}"
-cp ../src/main/resources/* $RESOURCE_DIRECTORY
+cp -R ../src/main/resources/* $RESOURCE_DIRECTORY
 
 echo "COPYING ALL JARS TO ${JAR_DIRECTORY}"
-cp ../target/*-SNAPSHOT.jar $JAR_DIRECTORY/$MICRO_SERVICE.jar
+cp -R ../target/*-SNAPSHOT.jar $JAR_DIRECTORY/$MICRO_SERVICE.jar
 
 TS=$(date +%d%m%Y-%H%M%S)
 

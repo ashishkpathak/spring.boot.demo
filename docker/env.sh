@@ -7,7 +7,7 @@
 
 
 # Set the microserivce name here.
-export MICRO_SERVICE=messaging-api
+export MICRO_SERVICE=spring-boot-demo
 echo $MICRO_SERVICE
 
 # Set the port for microservice. use the one defined in application.properties.
@@ -15,7 +15,7 @@ export MICRO_SERVICE_PORT=8080
 echo $MICRO_SERVICE_PORT
 
 # Set the JASUPT password if any.
-export JASYPT_ENCRYPTOR_SECRET=<YOUR_JASYPT_ENCRYPTOR_SECRET>
+export JASYPT_ENCRYPTOR_SECRET=YourSecretKeyGoesHere
 echo $JASYPT_ENCRYPTOR_SECRET
 
 # Set the spring profile.
