@@ -23,6 +23,19 @@
         <java.version>1.8</java.version>
     </properties>
 
+    <distributionManagement>
+      <repository>
+        <id>jfrog-central</id>
+        <name>maven-virtual-releases</name>
+        <url>https://pathak.jfrog.io/artifactory/default-maven-virtual</url>
+      </repository>
+      <snapshotRepository>
+        <id>jfrog-snapshots</id>
+        <name>maven-virtual-snapshots</name>
+        <url>https://pathak.jfrog.io/artifactory/default-maven-virtual</url>
+      </snapshotRepository>
+    </distributionManagement>
+    
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
