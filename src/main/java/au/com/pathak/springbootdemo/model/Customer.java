@@ -1,19 +1,33 @@
 package au.com.pathak.springbootdemo.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Version;
 
 @Entity
 public class Customer implements Serializable {
 
   @Id
-  @GeneratedValue(strategy= GenerationType.AUTO)
+  @GeneratedValue(strategy=GenerationType.IDENTITY)
   private Long id;
   private String firstName;
   private String lastName;
+
+  @OneToMany
+  @JoinColumn(name = "device_id")
+  private Set<Device> deviceSet = new HashSet<>();
+
+  @Version
+  private int version;
+
+
 
   public Customer(){
 
@@ -46,5 +60,9 @@ public class Customer implements Serializable {
 
   public void setLastName(String lastName) {
     this.lastName = lastName;
+  }
+
+  public Set<Device> getDeviceSet(){
+    return deviceSet;
   }
 }
