@@ -1,35 +1,25 @@
 package au.com.pathak.springbootdemo.controller;
 
 import java.io.BufferedInputStream;
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.nio.ByteBuffer;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
 
 import au.com.pathak.springbootdemo.model.BillDetail;
 import au.com.pathak.springbootdemo.model.BillSummary;
 import au.com.pathak.springbootdemo.model.CurrentBill;
-import au.com.pathak.springbootdemo.model.Customer;
 import au.com.pathak.springbootdemo.model.Money;
 import au.com.pathak.springbootdemo.model.PaymentMethod;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
-import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import sun.util.resources.et.CalendarData_et;
 
 @RestController
 public class MockBillingController implements BillingControllerIF {

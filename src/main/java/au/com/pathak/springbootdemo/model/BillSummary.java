@@ -2,9 +2,7 @@ package au.com.pathak.springbootdemo.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class BillSummary implements Serializable {
 

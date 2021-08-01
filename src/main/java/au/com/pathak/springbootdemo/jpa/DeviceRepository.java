@@ -1,6 +1,5 @@
 package au.com.pathak.springbootdemo.jpa;
 
-import au.com.pathak.springbootdemo.model.Customer;
 import au.com.pathak.springbootdemo.model.Device;
 import org.springframework.data.repository.CrudRepository;
 

@@ -7,8 +7,6 @@ import au.com.pathak.springbootdemo.model.Customer;
 import au.com.pathak.springbootdemo.services.CustomerServiceIF;
 import au.com.pathak.springbootdemo.services.RemoteServiceIF;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.context.annotation.Scope;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
