@@ -5,6 +5,8 @@ import java.util.List;
 
 import au.com.pathak.springbootdemo.exceptions.CustomerNotFoundException;
 import au.com.pathak.springbootdemo.model.Customer;
+import au.com.pathak.springbootdemo.model.Device;
+import com.google.common.collect.Lists;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,14 +19,15 @@ public class RemoteService implements RemoteServiceIF {
 
   @HystrixCommand(fallbackMethod = "getLocalCustomerByFirstName")
   public List<Customer> getRemoteCustomerByFirstName(final String firstName) {
-
-    return Arrays.asList(new Customer("RemoteUserFirstName", "RemoteUserLastName"));
+    Customer customer = new Customer(1L,"RemoteUserFirstName", "RemoteUserLastName");
+    customer.getDeviceSet().add(new Device());
+    return Arrays.asList(customer);
   }
 
   @HystrixCommand(fallbackMethod = "getLocalCustomerByLastName")
-  public List<Customer> getRemoteCustomerByLastName(final String firstName) {
+  public List<Customer> getRemoteCustomerByLastName(final String lastName) {
 
-    throw new CustomerNotFoundException(firstName);
+    throw new CustomerNotFoundException(lastName);
 
   }
 

@@ -43,6 +43,7 @@ public class SpringBootDemoApplication {
       Customer customer = new Customer("Homer", "Simpson");
       Device device = new Device();
       device.setName("DummyName");
+//      device.setCustomer(customer);
       customer.getDeviceSet().add(device);
       deviceRepository.save(device);
       repository.save(customer);

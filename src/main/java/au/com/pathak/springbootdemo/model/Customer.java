@@ -3,7 +3,9 @@ package au.com.pathak.springbootdemo.model;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,7 +13,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Customer implements Serializable {
 
   @Id
@@ -20,8 +26,8 @@ public class Customer implements Serializable {
   private String firstName;
   private String lastName;
 
-  @OneToMany
-  @JoinColumn(name = "device_id")
+  @OneToMany(fetch = FetchType.EAGER)
+//  @JoinColumn(name = "device_id")
   private Set<Device> deviceSet = new HashSet<>();
 
   @Version
@@ -32,6 +38,11 @@ public class Customer implements Serializable {
   }
 
   public Customer(String firstName, String lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+  public Customer(Long id, String firstName, String lastName) {
+    this.id =id;
     this.firstName = firstName;
     this.lastName = lastName;
   }
