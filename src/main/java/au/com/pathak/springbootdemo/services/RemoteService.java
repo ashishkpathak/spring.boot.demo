@@ -12,16 +12,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class RemoteService implements RemoteServiceIF {
 
-  // @Autowired
-  // private RestTemplate template;
-
   @Autowired
   private CustomerServiceIF customerServiceIF;
 
   @HystrixCommand(fallbackMethod = "getLocalCustomerByFirstName")
   public List<Customer> getRemoteCustomerByFirstName(final String firstName) {
 
-    return Arrays.asList(new Customer("RemoteUserFirstName","RemoteUserLastName"));
+    return Arrays.asList(new Customer("RemoteUserFirstName", "RemoteUserLastName"));
   }
 
   @HystrixCommand(fallbackMethod = "getLocalCustomerByLastName")

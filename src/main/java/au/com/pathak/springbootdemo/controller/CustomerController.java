@@ -17,21 +17,19 @@ public class CustomerController {
   @Autowired
   private CustomerServiceIF customerService;
 
-
   @Autowired
-//  @Lazy
+  // @Lazy
   private Config.MyBean foo;
-
 
   @Autowired
   private RemoteServiceIF remoteService;
-
 
   @RequestMapping("/scope")
   public String getScope() {
     return foo.print();
 
   }
+
   @RequestMapping("/firstname/{firstName}")
   public List<Customer> getCustomersViaFirstName(final @PathVariable String firstName) {
 
@@ -55,6 +53,5 @@ public class CustomerController {
 
     return remoteService.getRemoteCustomerByLastName(lastName);
   }
-
 
 }

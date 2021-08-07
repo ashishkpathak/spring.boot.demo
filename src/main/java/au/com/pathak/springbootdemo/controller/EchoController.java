@@ -26,23 +26,23 @@ public class EchoController {
     while (headerNames.hasMoreElements()) {
       String key = headerNames.nextElement();
       List<String> strings = response.getHeaders().get(key);
-      if(CollectionUtils.isEmpty(strings)) {
+      if (CollectionUtils.isEmpty(strings)) {
         response.getHeaders().put(key, Arrays.asList(request.getHeader(key)));
       } else {
         List<String> newList = new ArrayList<String>();
         newList.addAll(strings);
         newList.add(request.getHeader(key));
-        response.getHeaders().put(key,newList);
+        response.getHeaders().put(key, newList);
       }
 
     }
 
-    if(StringUtils.isNotBlank(body)) {
+    if (StringUtils.isNotBlank(body)) {
       response.setBody(body);
     }
 
     String queryString = request.getQueryString();
-    if(queryString != null){
+    if (queryString != null) {
       response.setQuery(queryString);
     }
 

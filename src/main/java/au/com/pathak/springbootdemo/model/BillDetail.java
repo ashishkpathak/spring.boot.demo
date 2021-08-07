@@ -7,7 +7,7 @@ public class BillDetail implements Serializable {
   private String format;
   private byte[] output;
 
-  public BillDetail(){
+  public BillDetail() {
 
   }
 

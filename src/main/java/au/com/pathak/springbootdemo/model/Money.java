@@ -7,7 +7,6 @@ public class Money implements Serializable {
   private String currency;
   private String amount;
 
-
   public Money(String amount) {
     this.currency = "AUD";
     this.amount = amount;

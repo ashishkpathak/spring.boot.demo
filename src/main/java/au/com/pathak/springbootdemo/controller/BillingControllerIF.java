@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface BillingControllerIF {
 
   @RequestMapping("/billingaccounts/{account}")
-  public BillSummary getCustomersViaFirstName(final @PathVariable String account) ;
+  public BillSummary getCustomersViaFirstName(final @PathVariable String account);
 
-
-///billingaccount/{billingAccount}/invoice/{invoiceid}?format=pdf
+  /// billingaccount/{billingAccount}/invoice/{invoiceid}?format=pdf
   @RequestMapping("/billingaccounts/{account}/invoice/{invoiceid}")
-  public BillDetail getBillDetails(final @PathVariable String account, final @PathVariable String invoiceid, @RequestParam(name = "outputFormat", required = false) String outputFormat) throws Exception;
+  public BillDetail getBillDetails(final @PathVariable String account, final @PathVariable String invoiceid,
+      @RequestParam(name = "outputFormat", required = false) String outputFormat) throws Exception;
 
 }

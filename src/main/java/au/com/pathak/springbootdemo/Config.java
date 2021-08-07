@@ -12,29 +12,6 @@ import org.springframework.context.annotation.ScopedProxyMode;
 @Configuration
 public class Config {
 
-
-
-  public class MyBean implements ApplicationContextAware {
-
-    private ApplicationContext appCtx ;
-
-    public MyBean(){
-      System.out.println("appCtx = " + appCtx);
-      System.out.printf("%d",System.currentTimeMillis() );
-    }
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-      appCtx = applicationContext;
-
-    }
-
-    public String print() {
-      return appCtx.getApplicationName();
-    }
-
-
-  }
-
   @Bean
   @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE, proxyMode = ScopedProxyMode.TARGET_CLASS)
   public MyBean foo(String bar) {
@@ -50,5 +27,26 @@ public class Config {
   @Bean
   public MyBean myBean() {
     return new MyBean();
+  }
+
+  public class MyBean implements ApplicationContextAware {
+
+    private ApplicationContext appCtx;
+
+    public MyBean() {
+      System.out.println("appCtx = " + appCtx);
+      System.out.printf("%d", System.currentTimeMillis());
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+      appCtx = applicationContext;
+
+    }
+
+    public String print() {
+      return appCtx.getApplicationName();
+    }
+
   }
 }

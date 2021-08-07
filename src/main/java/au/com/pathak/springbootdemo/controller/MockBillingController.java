@@ -24,11 +24,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MockBillingController implements BillingControllerIF {
 
-
+  private static Random random = new Random();
   @Autowired
   private ResourceLoader resourceLoader;
-
-  private static Random random = new Random();
 
   // @RequestMapping("/billingaccount/{account}")
   public BillSummary getCustomersViaFirstName(final @PathVariable String account) {
@@ -97,33 +95,29 @@ public class MockBillingController implements BillingControllerIF {
 
       byte[] buffer = new byte[0x10000];
 
-      ByteArrayOutputStream baos  =new ByteArrayOutputStream(0x1000);
-//      BufferedInputStream bis = null;
+      ByteArrayOutputStream baos = new ByteArrayOutputStream(0x1000);
+      // BufferedInputStream bis = null;
 
-//      InputStream systemResourceAsStream = ;
-//      System.out.println(systemResourceAsStream);
+      // InputStream systemResourceAsStream = ;
+      // System.out.println(systemResourceAsStream);
 
       Resource resource = resourceLoader.getResource("classpath:invoices/my-bill.pdf");
 
-
-      try(BufferedInputStream bis = new BufferedInputStream(resource.getInputStream())) {
+      try (BufferedInputStream bis = new BufferedInputStream(resource.getInputStream())) {
 
         int bRead = -1;
-        while((bRead = bis.read(buffer))!=-1) {
-          baos.write(buffer,0,bRead);
+        while ((bRead = bis.read(buffer)) != -1) {
+          baos.write(buffer, 0, bRead);
         }
 
-
-      }finally {
+      } finally {
 
       }
-
-
 
       billDetail.setOutput(baos.toByteArray());
       baos.close();
 
-      //      billDetail.setOutput();
+      // billDetail.setOutput();
     }
 
     billDetail.setFormat(outputFormat);

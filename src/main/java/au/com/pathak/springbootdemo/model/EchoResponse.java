@@ -9,7 +9,6 @@ import lombok.Data;
 @Data
 public class EchoResponse {
 
-
   private String body;
   private Map<String, List<String>> headers = new HashMap<>();
   private String query = new String();

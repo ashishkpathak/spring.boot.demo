@@ -38,10 +38,8 @@ public class SpringBootDemoApplication {
   @Bean
   public CommandLineRunner initializeCustomerDatabase(DeviceRepository deviceRepository, CustomerRepository repository, ApplicationArguments arguments) {
 
-
     LOG.debug("Arguments: ", arguments);
-    return args
-        ->{
+    return args -> {
       Customer customer = new Customer("Homer", "Simpson");
       Device device = new Device();
       device.setName("DummyName");
@@ -55,10 +53,6 @@ public class SpringBootDemoApplication {
       repository.save(new Customer("Ned", "Flanders"));
     };
 
-
   }
-
-
-
 
 }

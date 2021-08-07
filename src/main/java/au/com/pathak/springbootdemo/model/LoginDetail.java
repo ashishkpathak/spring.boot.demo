@@ -6,19 +6,15 @@ import java.util.Map;
 
 public class LoginDetail implements Serializable {
 
-
   private String userName;
-  private Map<String,String> attributes = new HashMap<>();
+  private Map<String, String> attributes = new HashMap<>();
 
-
-
-  public LoginDetail(String userName ){
+  public LoginDetail(String userName) {
     this.userName = userName;
   }
 
-  public Map<String,String> getAttributes() {
+  public Map<String, String> getAttributes() {
     return attributes;
-
 
   }
 

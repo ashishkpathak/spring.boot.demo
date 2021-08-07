@@ -15,7 +15,7 @@ import javax.persistence.Version;
 public class Customer implements Serializable {
 
   @Id
-  @GeneratedValue(strategy=GenerationType.IDENTITY)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   private String firstName;
   private String lastName;
@@ -27,9 +27,7 @@ public class Customer implements Serializable {
   @Version
   private int version;
 
-
-
-  public Customer(){
+  public Customer() {
 
   }
 
@@ -62,7 +60,7 @@ public class Customer implements Serializable {
     this.lastName = lastName;
   }
 
-  public Set<Device> getDeviceSet(){
+  public Set<Device> getDeviceSet() {
     return deviceSet;
   }
 }
